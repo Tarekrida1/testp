@@ -1,0 +1,241 @@
+$w_color: #fff;
+@mixin tran($t) {
+    -webkit-transition: all $t ease-in-out;
+    -moz-transition: all $t ease-in-out;
+    -ms-transition: all $t ease-in-out;
+    -o-transition: all $t ease-in-out;
+    transition: all $t ease-in-out;
+}
+
+@mixin bradius($b) {
+    -webkit-border-radius: $b;
+    -moz-border-radius: $b;
+    -ms-border-radius: $b;
+    -o-border-radius: $b;
+}
+
+@mixin bshadow($bs) {
+    box-shadow: $bs rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: $bs rgba(0, 0, 0, 0.25);
+    -o-box-shadow: $bs rgba(0, 0, 0, 0.25);
+    -ms-box-shadow: $bs rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: $bs rgba(0, 0, 0, 0.25);
+}
+
+@mixin translat($tr, $st2) {
+    transform: translate($tr, $st2);
+    -webkit-transform: translate($tr, $st2);
+    -moz-transform: translate($tr, $st2);
+    -ms-transform: translate($tr, $st2);
+    -o-transform: translate($tr, $st2);
+}
+
+.btnn {
+    height: 40px;
+    width: 100px;
+    text-align: center;
+    line-height: 40px;
+    border: none;
+    margin: 35px;
+    position: relative;
+    outline: none;
+    transition: all .3s ease-in-out;
+    @include bradius(50px);
+    @include tran(.5s);
+}
+
+.btnn:active,
+.btnn:visited {
+    @include bshadow(0 0 5px);
+    @include translat(-5px, 0);
+}
+
+.btnn .animate_btnn {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include bradius(50px);
+    z-index: -1;
+    @include tran(.3s);
+}
+
+.btnn:hover .animate_btnn {
+    transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    opacity: 0;
+}
+
+.typed-cursor {
+    display: none;
+}
+
+
+/**************************** strat loading ********/
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(360deg);
+    }
+    30% {
+        transform: rotate(370deg);
+    }
+    35% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin2 {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(0deg);
+    }
+    30% {
+        transform: rotate(-180deg);
+    }
+    35% {
+        transform: rotate(-190deg);
+    }
+    40% {
+        transform: rotate(-180deg);
+    }
+    78% {
+        transform: rotate(-180deg);
+    }
+    95% {
+        transform: rotate(-360deg);
+    }
+    98% {
+        transform: rotate(-370deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes spin3 {
+    0% {
+        transform: rotate(0deg);
+    }
+    27% {
+        transform: rotate(0deg);
+    }
+    40% {
+        transform: rotate(180deg);
+    }
+    45% {
+        transform: rotate(190deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    62% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(360deg);
+    }
+    80% {
+        transform: rotate(370deg);
+    }
+    85% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin4 {
+    0% {
+        transform: rotate(0deg);
+    }
+    38% {
+        transform: rotate(0deg);
+    }
+    60% {
+        transform: rotate(-360deg);
+    }
+    65% {
+        transform: rotate(-370deg);
+    }
+    75% {
+        transform: rotate(-360deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.loading {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 9999999;
+    background: #fff;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    direction: ltr;
+    span {
+        font-size: 20px;
+        font-weight: bold;
+        position: absolute;
+        top: -80px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    .loadercontainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        background: #fff;
+    }
+    .dash {
+        margin: 0 15px;
+        width: 35px;
+        height: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px 0 #FECDFF;
+    }
+    .uno {
+        margin-right: -18px;
+        transform-origin: center left;
+        animation: spin 3s linear infinite;
+    }
+    .dos {
+        transform-origin: center right;
+        animation: spin2 3s linear infinite;
+        animation-delay: .2s;
+    }
+    .tres {
+        transform-origin: center right;
+        animation: spin3 3s linear infinite;
+        animation-delay: .3s;
+    }
+    .cuatro {
+        transform-origin: center right;
+        animation: spin4 3s linear infinite;
+        animation-delay: .4s;
+    }
+}
+
+
+/**************************** end loading ************/
+
+@import 'colors';
+@import 'media';
